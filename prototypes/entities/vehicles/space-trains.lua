@@ -596,13 +596,13 @@ data:extend({ -- Battery charging interface
         }
     },
     minimap_representation = {
-        filename = "__base__/graphics/entity/cargo-wagon/cargo-wagon-minimap-representation.png",
+        filename = "__base__/graphics/entity/cargo-wagon/minimap-representation/cargo-wagon-minimap-representation.png",
         flags = {"icon"},
         size = {20, 40},
         scale = 0.5
     },
     selected_minimap_representation = {
-        filename = "__base__/graphics/entity/cargo-wagon/cargo-wagon-selected-minimap-representation.png",
+        filename = "__base__/graphics/entity/cargo-wagon/minimap-representation/cargo-wagon-selected-minimap-representation.png",
         flags = {"icon"},
         size = {20, 40},
         scale = 0.5
@@ -723,13 +723,13 @@ data:extend({ -- Battery charging interface
         }
     },
     minimap_representation = {
-        filename = "__base__/graphics/entity/fluid-wagon/fluid-wagon-minimap-representation.png",
+        filename = "__base__/graphics/entity/fluid-wagon/minimap-representation/fluid-wagon-minimap-representation.png",
         flags = {"icon"},
         size = {20, 40},
         scale = 0.5
     },
     selected_minimap_representation = {
-        filename = "__base__/graphics/entity/fluid-wagon/fluid-wagon-selected-minimap-representation.png",
+        filename = "__base__/graphics/entity/fluid-wagon/minimap-representation/fluid-wagon-selected-minimap-representation.png",
         flags = {"icon"},
         size = {20, 40},
         scale = 0.5
