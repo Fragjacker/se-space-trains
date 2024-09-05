@@ -6,29 +6,42 @@ data:extend({{
   name = "recipe-space-locomotive",
   energy_required = 60,
   enabled = false,
-  ingredients = {{"locomotive", 1}, {"processing-unit", 20}},
-  result = "space-locomotive"
+  ingredients = {
+    {type="item", name="locomotive", amount=1},
+    {type="item", name="processing-unit", amount=20},
+  },
+  results = {{type="item", name="space-locomotive", amount = 1}},
 }, {
   type = "recipe",
   name = "recipe-space-cargo-wagon",
   energy_required = 60,
   enabled = false,
-  ingredients = {{"cargo-wagon", 1}, {"processing-unit", 10}},
-  result = "space-cargo-wagon"
+  ingredients = {
+    {type="item", name="cargo-wagon", amount=1},
+    {type="item", name="processing-unit", amount=10},
+  },
+  results = {{type="item", name="space-cargo-wagon", amount = 1}},
 }, {
   type = "recipe",
   name = "recipe-space-fluid-wagon",
   energy_required = 60,
   enabled = false,
-  ingredients = {{"fluid-wagon", 1}, {"processing-unit", 10}},
-  result = "space-fluid-wagon"
+  ingredients = {
+    {type="item", name="fluid-wagon", amount=1},
+    {type="item", name="processing-unit", amount=10},
+  },
+  results = {{type="item", name="space-fluid-wagon", amount = 1}},
 }, {
   type = "recipe",
   name = "space-train-battery-charging-station",
   energy_required = 10,
   enabled = false,
-  ingredients = {{"steel-plate", 15}, {"processing-unit", 5}, {"copper-cable", 20}},
-  result = "space-train-battery-charging-station"
+  ingredients = {
+    {type="item", name="steel-plate", amount=15},
+    {type="item", name="processing-unit", amount=5},
+    {type="item", name="copper-cable", amount=20},
+  },
+  results = {{type="item", name="space-train-battery-charging-station", amount = 1}},
 }, {
   type = "recipe",
   name = "space-train-battery-pack",
@@ -36,9 +49,12 @@ data:extend({{
   energy_required = 10,
   enabled = false,
   allow_as_intermediate = false,
-  ingredients = {{"steel-plate", 2}, {"battery", 20}},
+  ingredients = {
+    {type="item", name="steel-plate", amount=2},
+    {type="item", name="battery", amount=20}
+  },
   localised_name = {"recipe-name.space-train-discharged-battery-pack-desc"},
-  result = "space-train-discharged-battery-pack"
+  results = {{type="item", name="space-train-discharged-battery-pack", amount = 1}},
 }, {
   type = "recipe",
   name = "space-train-battery-pack-recharge",
@@ -50,14 +66,21 @@ data:extend({{
   icon_size = 128,
   subgroup = "intermediate-product",
   allow_as_intermediate = false,
-  ingredients = {{"space-train-discharged-battery-pack", 1}},
-  results = {{
-    name = "space-train-destroyed-battery-pack",
-    probability = 0.01,
-    amount = 1
-  }, {
-    name = "space-train-battery-pack",
-    probability = 0.99,
-    amount = 1
-  }}
+  ingredients = {
+    {type="item", name="space-train-discharged-battery-pack", amount=1},
+  },
+  results = {
+    {
+      type = "item",
+      name = "space-train-destroyed-battery-pack",
+      probability = 0.01,
+      amount = 1
+    },
+    {
+      type = "item",
+      name = "space-train-battery-pack",
+      probability = 0.99,
+      amount = 1
+    }
+  }
 }})
