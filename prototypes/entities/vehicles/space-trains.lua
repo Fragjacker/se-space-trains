@@ -123,6 +123,68 @@ space_train_wheels = {
     }
 }
 
+local rolling_stock_back_light = function()
+    return
+    {
+      {
+        minimum_darkness = 0.3,
+        color = {1, 0.1, 0.05, 0},
+        shift = {-0.6, 3.5},
+        size = 2,
+        intensity = 0.6,
+        add_perspective = true
+      },
+      {
+        minimum_darkness = 0.3,
+        color = {1, 0.1, 0.05, 0},
+        shift = {0.6, 3.5},
+        size = 2,
+        intensity = 0.6,
+        add_perspective = true
+      }
+    }
+end
+
+local rolling_stock_stand_by_light = function()
+    return
+    {
+        {
+        minimum_darkness = 0.3,
+        color = {0.05, 0.2, 1, 0},
+        shift = {-0.6, -3.5},
+        size = 2,
+        intensity = 0.5,
+        add_perspective = true
+        },
+        {
+        minimum_darkness = 0.3,
+        color = {0.05, 0.2, 1, 0},
+        shift = {0.6, -3.5},
+        size = 2,
+        intensity = 0.5,
+        add_perspective = true
+        }
+    }
+end
+
+local locomotive_reflection = function()
+    return
+    {
+      pictures =
+      {
+        filename = "__base__/graphics/entity/locomotive/reflection/locomotive-reflection.png",
+        priority = "extra-high",
+        width = 20,
+        height = 52,
+        shift = util.by_pixel(0, 40),
+        variation_count = 1,
+        scale = 5
+      },
+      rotate = true,
+      orientation_to_variation = false
+    }
+end  
+
 data:extend({ -- Battery charging interface
 {
     type = "assembling-machine",
