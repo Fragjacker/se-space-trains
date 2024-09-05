@@ -137,7 +137,7 @@ if mods["space-exploration"] then
   -- Add new prerequisites to the Space Train Tech to reflect the newly required ingredients.
   table.insert(data.raw["technology"]["se-space-rail"].prerequisites, "se-heat-shielding")
   table.insert(data.raw["technology"]["se-space-rail"].prerequisites, "steel-processing")
-  table.insert(data.raw["technology"]["se-space-rail"].prerequisites, "advanced-electronics-2")
+  table.insert(data.raw["technology"]["se-space-rail"].prerequisites, "processing-unit")
   -- Add new prerequisites to the Space Train Tech if Krastorio 2 is used.
   if mods["Krastorio2"] then
     table.insert(data.raw["technology"]["se-space-rail"].prerequisites, "advanced-electronics")
@@ -190,7 +190,7 @@ else
       type = "unlock-recipe",
       recipe = "space-train-battery-pack-recharge"
     }},
-    prerequisites = {"steel-processing", "advanced-electronics-2", "battery", "railway", "production-science-pack"},
+    prerequisites = {"steel-processing", "processing-unit", "battery", "railway", "production-science-pack"},
     unit = {
       count = 500,
       ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1},
