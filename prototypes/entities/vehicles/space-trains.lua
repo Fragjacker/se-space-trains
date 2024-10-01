@@ -174,28 +174,29 @@ data:extend({ -- Battery charging interface
         drain = "500W"
     },
     fast_replaceable_group = "assembling-machine",
-    always_draw_idle_animation = true,
-    idle_animation = space_accumulator_picture(),
-    working_visualisations = {{
-        effect = "flicker",
-        fadeout = true,
-        light = {
-            intensity = 0.2,
-            size = 9.9,
-            shift = {0.0, 0.0},
-            color = {
-                r = 0.25,
-                g = 0.25,
-                b = 0.8
+    graphics_set = {
+        always_draw_idle_animation = true,
+        idle_animation = space_accumulator_picture(),
+        working_visualisations = {{
+            effect = "flicker",
+            fadeout = true,
+            light = {
+                intensity = 0.2,
+                size = 9.9,
+                shift = {0.0, 0.0},
+                color = {
+                    r = 0.25,
+                    g = 0.25,
+                    b = 0.8
+                }
             }
-        }
-    }, {
-        effect = "flicker",
-        fadeout = true,
-        draw_as_light = true,
-        animation = space_accumulator_charge()
-    }},
-
+        }, {
+            effect = "flicker",
+            fadeout = true,
+            draw_as_light = true,
+            animation = space_accumulator_charge()
+        }},
+    },
     water_reflection = accumulator_reflection(),
 
     energy_usage = "1.7MW",
