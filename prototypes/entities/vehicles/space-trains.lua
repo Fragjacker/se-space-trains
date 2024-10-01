@@ -278,7 +278,7 @@ data:extend({ -- Battery charging interface
     }},
     energy_source = {
         type = "burner",
-        fuel_category = "electrical",
+        fuel_categories = {"electrical"},
         effectivity = 0.95,
         fuel_inventory_size = 3,
         burnt_inventory_size = 1
