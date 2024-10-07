@@ -1,0 +1,16 @@
+{
+  "recipe": [
+    [
+      "recipe-space-locomotive",
+      "space-locomotive"
+    ],
+    [
+      "recipe-space-cargo-wagon",
+      "space-cargo-wagon"
+    ],
+    [
+      "recipe-space-fluid-wagon",
+      "space-fluid-wagon"
+    ]
+  ]
+}

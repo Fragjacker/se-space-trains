@@ -76,11 +76,11 @@ if mods["Krastorio2"] then
   data.raw["cargo-wagon"]["space-cargo-wagon"].equipment_grid = "kr-wagons-grid"
   data.raw["fluid-wagon"]["space-fluid-wagon"].equipment_grid = "kr-wagons-grid"
 
-  data.raw["recipe"]["recipe-space-locomotive"].ingredients =
+  data.raw["recipe"]["space-locomotive"].ingredients =
     {{"locomotive", 1}, {"processing-unit", 20}, {"electronic-components", 20}, {"steel-gear-wheel", 20},
      {"rare-metals", 80}}
-  table.insert(data.raw["recipe"]["recipe-space-cargo-wagon"].ingredients, {"steel-gear-wheel", 20})
-  table.insert(data.raw["recipe"]["recipe-space-fluid-wagon"].ingredients, {"steel-gear-wheel", 20})
+  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, {"steel-gear-wheel", 20})
+  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, {"steel-gear-wheel", 20})
   table.insert(data.raw["recipe"]["space-train-battery-pack"].ingredients, {"lithium-sulfur-battery", 10})
   if settings.startup["space-battery-decay-enable-setting"].value then
     table.insert(data.raw["recipe"]["space-train-battery-pack-refurbish"].ingredients, {"lithium-sulfur-battery", 5})
@@ -94,15 +94,15 @@ end
 if mods["space-exploration"] then
   table.insert(data.raw["technology"]["se-space-rail"].effects, {
     type = "unlock-recipe",
-    recipe = "recipe-space-locomotive"
+    recipe = "space-locomotive"
   })
   table.insert(data.raw["technology"]["se-space-rail"].effects, {
     type = "unlock-recipe",
-    recipe = "recipe-space-fluid-wagon"
+    recipe = "space-fluid-wagon"
   })
   table.insert(data.raw["technology"]["se-space-rail"].effects, {
     type = "unlock-recipe",
-    recipe = "recipe-space-cargo-wagon"
+    recipe = "space-cargo-wagon"
   })
   table.insert(data.raw["technology"]["se-space-rail"].effects, {
     type = "unlock-recipe",
@@ -145,23 +145,23 @@ if mods["space-exploration"] then
   end
 
   -- Change recipes accordingly when space exploration mods are installed and used.
-  table.insert(data.raw["recipe"]["recipe-space-locomotive"].ingredients, {type="item", name="se-heat-shielding", amount=20})
-  table.insert(data.raw["recipe"]["recipe-space-cargo-wagon"].ingredients, {type="item", name="se-heat-shielding", amount=20})
-  table.insert(data.raw["recipe"]["recipe-space-fluid-wagon"].ingredients, {type="item", name="se-heat-shielding", amount=20})
+  table.insert(data.raw["recipe"]["space-locomotive"].ingredients, {type="item", name="se-heat-shielding", amount=20})
+  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, {type="item", name="se-heat-shielding", amount=20})
+  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, {type="item", name="se-heat-shielding", amount=20})
   table.insert(data.raw["recipe"]["space-train-battery-charging-station"].ingredients, {type="item", name="se-heat-shielding", amount=20})
 
   data.raw["assembling-machine"]["space-train-battery-charging-station"].se_allow_in_space = true
 
   if mods["space-exploration"] and not mods["Krastorio2"] then
-    table.insert(data.raw["recipe"]["recipe-space-locomotive"].ingredients, {type="item", name="steel-plate", amount=20})
-    table.insert(data.raw["recipe"]["recipe-space-cargo-wagon"].ingredients, {type="item", name="steel-plate", amount=20})
-    table.insert(data.raw["recipe"]["recipe-space-fluid-wagon"].ingredients, {type="item", name="steel-plate", amount=20})
+    table.insert(data.raw["recipe"]["space-locomotive"].ingredients, {type="item", name="steel-plate", amount=20})
+    table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, {type="item", name="steel-plate", amount=20})
+    table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, {type="item", name="steel-plate", amount=20})
   end
 else
   -- Handle adding a new tech for Space Trains if Space Exploration is not used.
-  table.insert(data.raw["recipe"]["recipe-space-locomotive"].ingredients, {type="item", name="steel-plate", amount=20})
-  table.insert(data.raw["recipe"]["recipe-space-cargo-wagon"].ingredients, {type="item", name="steel-plate", amount=20})
-  table.insert(data.raw["recipe"]["recipe-space-fluid-wagon"].ingredients, {type="item", name="steel-plate", amount=20})
+  table.insert(data.raw["recipe"]["space-locomotive"].ingredients, {type="item", name="steel-plate", amount=20})
+  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, {type="item", name="steel-plate", amount=20})
+  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, {type="item", name="steel-plate", amount=20})
 
   data:extend({ -- TECHNOMANS
   {
@@ -173,13 +173,13 @@ else
     icon_mipmaps = 4,
     effects = {{
       type = "unlock-recipe",
-      recipe = "recipe-space-locomotive"
+      recipe = "space-locomotive"
     }, {
       type = "unlock-recipe",
-      recipe = "recipe-space-fluid-wagon"
+      recipe = "space-fluid-wagon"
     }, {
       type = "unlock-recipe",
-      recipe = "recipe-space-cargo-wagon"
+      recipe = "space-cargo-wagon"
     }, {
       type = "unlock-recipe",
       recipe = "space-train-battery-charging-station"

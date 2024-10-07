@@ -3,7 +3,7 @@
 ---------------------
 data:extend({{
   type = "recipe",
-  name = "recipe-space-locomotive",
+  name = "space-locomotive",
   energy_required = 60,
   enabled = false,
   ingredients = {
@@ -13,7 +13,7 @@ data:extend({{
   results = {{type="item", name="space-locomotive", amount = 1}},
 }, {
   type = "recipe",
-  name = "recipe-space-cargo-wagon",
+  name = "space-cargo-wagon",
   energy_required = 60,
   enabled = false,
   ingredients = {
@@ -23,7 +23,7 @@ data:extend({{
   results = {{type="item", name="space-cargo-wagon", amount = 1}},
 }, {
   type = "recipe",
-  name = "recipe-space-fluid-wagon",
+  name = "space-fluid-wagon",
   energy_required = 60,
   enabled = false,
   ingredients = {
