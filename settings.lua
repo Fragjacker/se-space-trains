@@ -2,7 +2,7 @@ data:extend({{
   type = "bool-setting",
   name = "space-battery-decay-enable-setting",
   setting_type = "startup",
-  default_value = "true"
+  default_value = true
 }, {
   type = "string-setting",
   name = "space-battery-pack-energy-density-setting",
