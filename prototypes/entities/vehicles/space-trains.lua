@@ -4,10 +4,10 @@ local space_train_light_color = {
     b = 0.8,
     a = 0.25
 }
-local train_scale = 0.425
-local fluid_wagon_scale = 0.375
-local cargo_wagon_scale = 0.4
-local wagon_vertical_shift = -0.8
+train_scale = 0.425
+fluid_wagon_scale = 0.375
+cargo_wagon_scale = 0.4
+wagon_vertical_shift = -0.8
 local connection_length = 3
 local train_speed = 2.4
 local hit_effects = require("__base__/prototypes/entity/hit-effects")
@@ -350,6 +350,8 @@ data:extend({ -- Battery charging interface
                 dice = 4,
                 width = 1000,
                 height = 600,
+                tint_as_overlay = true,
+                allow_low_quality_rotation = true,
                 direction_count = 256,
                 allow_low_quality_rotation = true,
                 filenames = {"__se-space-trains__/graphics/entity/vehicles/space-trains/hr_space_locomotive_mask_1.png",
@@ -371,6 +373,8 @@ data:extend({ -- Battery charging interface
                 width = 1000,
                 height = 600,
                 direction_count = 256,
+              	tint_as_overlay = true,
+              	allow_low_quality_rotation = true,
                 draw_as_shadow = true,
                 allow_low_quality_rotation = true,
                 filenames = {"__se-space-trains__/graphics/entity/vehicles/space-trains/hr_space_locomotive_shadows_1.png",
@@ -478,7 +482,8 @@ data:extend({ -- Battery charging interface
         volume = 0.4
     },
     sound_minimum_speed = 0.5,
-    water_reflection = locomotive_reflection()
+    water_reflection = locomotive_reflection(),
+    allow_remote_driving = true
 }, {
     type = "cargo-wagon",
     name = "space-cargo-wagon",

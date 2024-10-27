@@ -6,6 +6,11 @@
 -- -- Adding new achievements
 require("prototypes/entities-initialization")
 require("vanilla-changes/vehicles-changes")
+
+-- Check if elevated rails mod is active, then load the sloped sprites.
+if mods["elevated-rails"] then
+  require("__se-space-trains__.prototypes.elevated-rails.sloped-space-trains-updates").apply_all_base()
+end
 ---------------------------------------------------------------------------
 -- -- -- OPTIONAL CONTENTS INITIALIZATION (data stage)
 ---------------------------------------------------------------------------

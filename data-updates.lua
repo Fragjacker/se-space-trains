@@ -71,6 +71,9 @@ end
 ------------------------------------------
 -- Handling Mod cases happens here
 ------------------------------------------
+-- ---------------------------------------------------------------------------------------------- --
+--                                           KRASTORIO 2                                          --
+-- ---------------------------------------------------------------------------------------------- --
 if mods["Krastorio2"] then
   data.raw["locomotive"]["space-locomotive"].equipment_grid = "kr-locomotive-grid"
   data.raw["cargo-wagon"]["space-cargo-wagon"].equipment_grid = "kr-wagons-grid"
@@ -91,6 +94,9 @@ else
   end
 end
 
+-- ---------------------------------------------------------------------------------------------- --
+--                                        SPACE EXPLORATION                                       --
+-- ---------------------------------------------------------------------------------------------- --
 if mods["space-exploration"] then
   table.insert(data.raw["technology"]["se-space-rail"].effects, {
     type = "unlock-recipe",
@@ -157,6 +163,9 @@ if mods["space-exploration"] then
     table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, {type="item", name="steel-plate", amount=20})
     table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, {type="item", name="steel-plate", amount=20})
   end
+-- ---------------------------------------------------------------------------------------------- --
+--                                             VANILLA                                            --
+-- ---------------------------------------------------------------------------------------------- --
 else
   -- Handle adding a new tech for Space Trains if Space Exploration is not used.
   table.insert(data.raw["recipe"]["space-locomotive"].ingredients, {type="item", name="steel-plate", amount=20})
