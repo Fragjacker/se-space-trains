@@ -1,21 +1,20 @@
 local meld = require("__core__.lualib.meld")
 
 local updates = {}
-
--- updates.wheels =
--- {
---   sloped = util.sprite_load("__se-space-trains__/graphics/entity/train-wheel/train-wheel-sloped",
---     {
---       priority = "very-low",
---       direction_count = 160,
---       scale = 0.5,
---       shift = util.by_pixel(0, 8),
---       usage = "train"
---     }
---   ),
---   slope_angle_between_frames = 1.25
--- }
 local corrected_train_scale = train_scale * 1.07
+
+updates.wheels =
+{
+  sloped = util.sprite_load("__se-space-trains__/graphics/entity/elevated-rails/space-locomotive/space-train-maglev-cushion-sloped",
+    {
+      priority = "very-low",
+      direction_count = 160,
+      scale = 0.775 / 2,
+      usage = "train"
+    }
+  ),
+  slope_angle_between_frames = 1.25
+}
 
 updates.locomotive =
 {
