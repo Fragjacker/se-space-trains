@@ -12,6 +12,7 @@ local connection_length = 3
 local train_speed = 2.4
 local hit_effects = require("__base__/prototypes/entity/hit-effects")
 local sounds = require("__base__/prototypes/entity/sounds")
+local simulations = require("__base__.prototypes.factoriopedia-simulations")
 
 function space_accumulator_picture(tint, repeat_count)
     return {
@@ -234,17 +235,17 @@ data:extend({ -- Battery charging interface
         mining_time = 1,
         result = "space-locomotive"
     },
-    mined_sound = {
-        filename = "__core__/sound/deconstruct-medium.ogg"
-    },
+    mined_sound = sounds.deconstruct_large(0.8),
     max_health = 1500,
+    deliver_category = "vehicle",
     corpse = "locomotive-remnants",
     dying_explosion = "locomotive-explosion",
+    factoriopedia_simulation = simulations.factoriopedia_locomotive,
     collision_box = {{-0.6, -2.6}, {0.6, 2.6}},
     selection_box = {{-1, -3}, {1, 3}},
-    drawing_box = {{-1, -4}, {1, 3}},
-    alert_icon_shift = util.by_pixel(0, -24),
     damaged_trigger_effect = hit_effects.entity(),
+    drawing_box_vertical_extension = 1,
+    alert_icon_shift = util.by_pixel(0, -24),
     weight = 12000,
     max_speed = train_speed,
     max_power = "4MW",
@@ -256,7 +257,13 @@ data:extend({ -- Battery charging interface
     connection_distance = connection_length,
     joint_distance = 4,
     energy_per_hit_point = 5,
-    resistances = {{
+    icons_positioning =
+    {
+      {inventory_index = defines.inventory.fuel, shift = {0, 0.3}, max_icons_per_row = 3},
+    },
+    resistances =
+    {
+      {
         type = "fire",
         decrease = 20,
         percent = 75
@@ -323,6 +330,7 @@ data:extend({ -- Battery charging interface
         b = 0,
         a = 0.5
     },
+    default_copy_color_from_train_stop = true,
     pictures = {
         rotated = {
             layers = {{
@@ -466,8 +474,15 @@ data:extend({ -- Battery charging interface
     working_sound = {
         sound = {
             filename = "__se-space-trains__/sound/space-train-engine.ogg",
-            volume = 0.4
+            volume = 0.4,
+	    modifiers =
+            {
+              volume_multiplier("main-menu", 1.8),
+              volume_multiplier("driving", 0.9),
+              volume_multiplier("tips-and-tricks", 0.8)
+            },
         },
+
         match_speed_to_activity = true,
         max_sounds_per_type = 2
     },
@@ -643,13 +658,16 @@ data:extend({ -- Battery charging interface
         volume = 0.8
     },
     max_health = 600,
-    capacity = 30000,
+    capacity = 60000,
+    deliver_category = "vehicle",
     corpse = "fluid-wagon-remnants",
     dying_explosion = "fluid-wagon-explosion",
+    factoriopedia_simulation = simulations.factoriopedia_fluid_wagon,
     collision_box = {{-0.6, -2.4}, {0.6, 2.4}},
     selection_box = {{-1, -2.703125}, {1, 3.296875}},
     damaged_trigger_effect = hit_effects.entity(),
     vertical_selection_shift = -0.796875,
+    icon_draw_specification = {scale = 1.25, shift = {0, -1}},
     weight = 1000,
     max_speed = train_speed,
     braking_force = 3,
@@ -750,6 +768,6 @@ data:extend({ -- Battery charging interface
     },
     crash_trigger = crash_trigger(),
     sound_minimum_speed = 0.1,
-    vehicle_impact_sound = sounds.generic_impact,
+    impact_category = "metal-large",
     water_reflection = locomotive_reflection()
 }})

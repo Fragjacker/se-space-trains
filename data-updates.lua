@@ -79,6 +79,9 @@ if mods["Krastorio2"] then
   data.raw["cargo-wagon"]["space-cargo-wagon"].equipment_grid = "kr-wagons-grid"
   data.raw["fluid-wagon"]["space-fluid-wagon"].equipment_grid = "kr-wagons-grid"
 
+  data.raw["cargo-wagon"]["space-cargo-wagon"].allow_robot_dispatch_in_automatic_mode = true
+  data.raw["fluid-wagon"]["space-fluid-wagon"].allow_robot_dispatch_in_automatic_mode = true
+
   data.raw["recipe"]["space-locomotive"].ingredients =
     {{"locomotive", 1}, {"processing-unit", 20}, {"electronic-components", 20}, {"steel-gear-wheel", 20},
      {"rare-metals", 80}}
