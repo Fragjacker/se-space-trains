@@ -2,6 +2,7 @@ local meld = require("__core__.lualib.meld")
 
 local updates = {}
 local corrected_train_scale = train_scale * 1.07
+local corrected_fluid_wagon_scale = fluid_wagon_scale * 1.12
 
 updates.wheels =
 {
@@ -75,7 +76,7 @@ updates.locomotive =
             blend_mode = "additive",
             draw_as_light = true,
             direction_count = 160,
-            scale = train_scale,
+            scale = corrected_train_scale,
             usage = "train"
           }
         )
@@ -107,88 +108,100 @@ updates.locomotive =
   },
 }
 
--- updates.cargo_wagon =
--- {
---   wheels = updates.wheels,
---   pictures =
---   {
---     slope_angle_between_frames = 1.25,
---     slope_back_equals_front = true,
---     sloped =
---     {
---       layers =
---       {
---         util.sprite_load("__se-space-trains__/graphics/entity/cargo-wagon/cargo-wagon-sloped",
---           {
---             dice = 4,
---             priority = "very-low",
---             back_equals_front = true,
---             direction_count = 80,
---             scale = 0.5,
---             usage = "train"
---           }
---         ),
---         util.sprite_load("__se-space-trains__/graphics/entity/cargo-wagon/cargo-wagon-sloped-mask",
---           {
---             dice = 4,
---             priority = "very-low",
---             flags = { "mask" },
---             apply_runtime_tint = true,
---             tint_as_overlay = true,
---             direction_count = 80,
---             scale = 0.5,
---             usage = "train"
---           }
---         ),
---         util.sprite_load("__se-space-trains__/graphics/entity/cargo-wagon/cargo-wagon-sloped-shadow",
---           {
---             dice = 4,
---             priority = "very-low",
---             draw_as_shadow = true,
---             direction_count = 80,
---             scale = 0.5,
---             usage = "train"
---           }
---         )
---       }
---     }
---   },
--- }
+updates.cargo_wagon =
+{
+  wheels = updates.wheels,
+  pictures =
+  {
+    slope_angle_between_frames = 1.25,
+    slope_back_equals_front = true,
+    sloped =
+    {
+      layers =
+      {
+        util.sprite_load("__se-space-trains__/graphics/entity/elevated-rails/space-cargo-wagon/space-cargo-wagon-sloped",
+          {
+            dice = 4,
+            priority = "very-low",
+            back_equals_front = true,
+            direction_count = 80,
+            scale = corrected_train_scale,
+            usage = "train"
+          }
+        ),
+        util.sprite_load("__se-space-trains__/graphics/entity/elevated-rails/space-cargo-wagon/space-cargo-wagon-sloped-mask",
+          {
+            dice = 4,
+            priority = "very-low",
+            flags = { "mask" },
+            apply_runtime_tint = true,
+            tint_as_overlay = true,
+            direction_count = 80,
+            scale = corrected_train_scale,
+            usage = "train"
+          }
+        ),
+        util.sprite_load("__se-space-trains__/graphics/entity/elevated-rails/space-cargo-wagon/space-cargo-wagon-sloped-shadow",
+          {
+            dice = 4,
+            priority = "very-low",
+            draw_as_shadow = true,
+            direction_count = 80,
+            scale = corrected_train_scale,
+            usage = "train"
+          }
+        )
+      }
+    }
+  },
+}
 
--- updates.fluid_wagon =
--- {
---   wheels = updates.wheels,
---   pictures =
---   {
---     slope_angle_between_frames = 1.25,
---     slope_back_equals_front = true,
---     sloped =
---     {
---       layers =
---       {
---         util.sprite_load("__se-space-trains__/graphics/entity/fluid-wagon/fluid-wagon-sloped",
---           {
---             dice = 4,
---             priority = "very-low",
---             direction_count = 80,
---             scale = 0.5,
---             usage = "train"
---           }
---         ),
---         util.sprite_load("__se-space-trains__/graphics/entity/fluid-wagon/fluid-wagon-sloped-shadow",
---           {
---             dice = 4,
---             priority = "very-low",
---             draw_as_shadow = true,
---             direction_count = 80,
---             scale = 0.5,
---             usage = "train"
---           }
---         )
---       }
---     }
---   },
--- }
+updates.fluid_wagon =
+{
+  wheels = updates.wheels,
+  pictures =
+  {
+    slope_angle_between_frames = 1.25,
+    slope_back_equals_front = true,
+    sloped =
+    {
+      layers =
+      {
+        util.sprite_load("__se-space-trains__/graphics/entity/elevated-rails/space-fluid-wagon/space-fluid-wagon-sloped",
+          {
+            dice = 4,
+            priority = "very-low",
+            direction_count = 80,
+            scale = corrected_fluid_wagon_scale,
+            usage = "train"
+          }
+        ),
+        -- util.sprite_load("__se-space-trains__/graphics/entity/elevated-rails/space-cargo-wagon/space-fluid-wagon-sloped-mask",
+        --   {
+        --     dice = 4,
+        --     priority = "very-low",
+        --     flags = { "mask" },
+        --     apply_runtime_tint = true,
+        --     tint_as_overlay = true,
+        --     direction_count = 80,
+        --     scale = corrected_fluid_wagon_scale,
+        --     usage = "train"
+        --   }
+        -- ),
+        util.sprite_load("__se-space-trains__/graphics/entity/elevated-rails/space-fluid-wagon/space-fluid-wagon-sloped-shadow",
+          {
+            dice = 4,
+            priority = "very-low",
+            draw_as_shadow = true,
+            direction_count = 80,
+            scale = corrected_fluid_wagon_scale,
+            usage = "train"
+          }
+        )
+      }
+    }
+  },
+}
 
 -- updates.artillery_wagon =
 -- {
@@ -280,8 +293,8 @@ updates.locomotive =
 
 updates.apply_all_base = function()
   meld(data.raw["locomotive"]["space-locomotive"], updates.locomotive)
-  -- meld(data.raw["cargo-wagon"]["cargo-wagon"], updates.cargo_wagon)
-  -- meld(data.raw["fluid-wagon"]["fluid-wagon"], updates.fluid_wagon)
-  -- meld(data.raw["artillery-wagon"]["artillery-wagon"], updates.artillery_wagon)
+  meld(data.raw["cargo-wagon"]["space-cargo-wagon"], updates.cargo_wagon)
+  meld(data.raw["fluid-wagon"]["space-fluid-wagon"], updates.fluid_wagon)
+  -- meld(data.raw["artillery-wagon"]["space-artillery-wagon"], updates.artillery_wagon)
 end
 return updates

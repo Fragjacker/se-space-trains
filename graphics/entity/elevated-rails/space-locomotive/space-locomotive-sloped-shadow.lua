@@ -2,7 +2,7 @@ return
 {
   width = 1000,
   height = 600,
-  shift = util.by_pixel( 9.0, -5.8 ),
+  shift = util.by_pixel( 6.0, -5.8 ),
   line_length = 4,
   filenames = {
     "-1.png",
