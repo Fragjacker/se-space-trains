@@ -83,13 +83,16 @@ if mods["Krastorio2"] then
   data.raw["fluid-wagon"]["space-fluid-wagon"].allow_robot_dispatch_in_automatic_mode = true
 
   data.raw["recipe"]["space-locomotive"].ingredients =
-    {{"locomotive", 1}, {"processing-unit", 20}, {"electronic-components", 20}, {"steel-gear-wheel", 20},
-     {"rare-metals", 80}}
-  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, {"steel-gear-wheel", 20})
-  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, {"steel-gear-wheel", 20})
-  table.insert(data.raw["recipe"]["space-train-battery-pack"].ingredients, {"lithium-sulfur-battery", 10})
+    {{type="item", name="locomotive", amount=1},
+    {type="item", name="processing-unit", amount=20},
+    {type="item", name="electronic-components", amount=20},
+    {type="item", name="steel-gear-wheel", amount=20},
+    {type="item", name="rare-metals", amount=80}}
+  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, {type="item", name="steel-gear-wheel", amount=20})
+  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, {type="item", name="steel-gear-wheel", amount=20})
+  table.insert(data.raw["recipe"]["space-train-battery-pack"].ingredients, {type="item", name="lithium-sulfur-battery", amount=10})
   if settings.startup["space-battery-decay-enable-setting"].value then
-    table.insert(data.raw["recipe"]["space-train-battery-pack-refurbish"].ingredients, {"lithium-sulfur-battery", 5})
+    table.insert(data.raw["recipe"]["space-train-battery-pack-refurbish"].ingredients, {type="item", name="lithium-sulfur-battery", amount=5})
   end
 else
   if settings.startup["space-battery-decay-enable-setting"].value then
@@ -205,8 +208,10 @@ else
     prerequisites = {"steel-processing", "processing-unit", "battery", "railway", "production-science-pack"},
     unit = {
       count = 500,
-      ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1},
-                     {"production-science-pack", 1}},
+      ingredients = {{type="item", name="automation-science-pack", amount=1},
+      {type="item", name="logistic-science-pack", amount=11},
+      {type="item", name="chemical-science-pack", amount=11},
+      {type="item", name="production-science-pack", amount=11}},
       time = 60
     }
   }})
