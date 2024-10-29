@@ -13,8 +13,8 @@ data:extend({{
   type = "string-setting",
   name = "space-fluid-wagon-capacity-setting",
   setting_type = "startup",
-  default_value = "30.000 (Default)",
-  allowed_values = {"25.000 (Vanilla)", "30.000 (Default)"}
+  default_value = "60.000 (Default)",
+  allowed_values = {"50.000 (Vanilla)", "60.000 (Default)"}
 }, {
   type = "string-setting",
   name = "space-cargo-wagon-capacity-setting",
