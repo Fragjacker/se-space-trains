@@ -208,13 +208,16 @@ else
     prerequisites = {"steel-processing", "processing-unit", "battery", "railway", "production-science-pack"},
     unit = {
       count = 500,
-      ingredients = {{type="item", name="automation-science-pack", amount=1},
-      {type="item", name="logistic-science-pack", amount=11},
-      {type="item", name="chemical-science-pack", amount=11},
-      {type="item", name="production-science-pack", amount=11}},
+      ingredients = {
+      {"automation-science-pack", 1},
+      {"logistic-science-pack", 11},
+      {"chemical-science-pack", 11},
+      {"production-science-pack", 11}
+    },
       time = 60
     }
-  }})
+  }
+})
   if settings.startup["space-battery-decay-enable-setting"].value then
     table.insert(data.raw["technology"]["tech-space-trains"].effects, {
       type = "unlock-recipe",
