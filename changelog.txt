@@ -1,4 +1,28 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 31.10.2024
+  Changes:
+    - Update the Mod to Factorio 2.0 code base (Thanks to Xorimuth for doing the gruntwork here).
+    - Added full compatibility for Space Age.
+    - Added new rendered sprites for full compatibility with Elevated Rails.
+    - Despite all the compatibility the Mod still also works using only Vanilla.
+    - Space train locomotive can now take the same color as the trains top, just like the vanilla ones do
+    - Updated the settings to allow the user to switch between 50.000 (Vanilla) and the new 60.000 fluid capacity.
+    - Added pickup and drop sounds for all Space Trains related items.d
+    - Space Age: Moved the Space Trains technology behind the Electromagnetics Facility and producing one will unlock the tech. (If all prerequisites are met)
+    - Space Age: Added gravity requirements to Space Trains.
+    - Space Age: Added rocket stack sizes to all Space Trains and related items.
+  Balancing:
+    - Space Age: The Space Locomotive, Space Cargo Wagon and Space Fluid Wagon are now produced in the Electromagnetics Facility.
+    - Space Age: The Space Locomotive now costs 20x Steel Beams, 20x Processing Units, 10x Superconductors, 5x Supercapacitors and 1x Locomotive to craft.
+    - Space Age: The Space Cargo Wagon now costs 20x Steel Beams, 10x Processing Units, 10x Superconductors and 1x Cargo Wagon to craft.
+    - Space Age: The Space Fluid Wagon now costs 20x Steel Beams, 10x Processing Units, 10x Superconductors and 1x Fluid Wagon to craft.
+    - Space Age: The Space Battery Pack Charging Station now costs 10x Steel Beams, 10x Processing Units, 2x Holmium Plates and 5x Superconductors to craft.
+    - Space Age: The Space Battery Pack now costs 10x Steel Beams, 2x Holmium Plates, 2x Superconductors and 1x Supercapacitors to craft.
+    - Updated the default space fluid wagon capacity from 30.000 to 60.000.
+  Bugfixes:
+    - Added the ability to cargo wagons to dispatch robots when in automatic mode. (Requires mods that add equipment grids)
+---------------------------------------------------------------------------------------------------
 Version: 0.1.12
 Date: 01.09.2022
   Changes:
