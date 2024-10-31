@@ -4,9 +4,11 @@
   "title": "SE Space Trains",
   "author": "FragJacker",
   "factorio_version": "2.0",
-  "description": "This mod adds UPS friendly Space Exploration themed, MAGLEV propulsed, trains. They are best used together with the Krastorio 2 and Space Exploration mod. Yet, they also function as standalone pack, using only the vanilly game.",
+  "description": "This mod adds UPS friendly Space Exploration themed, MAGLEV propulsed, trains. They are best used together with the Krastorio 2 and Space Exploration mod. Yet, they also function as standalone pack, using only the vanilla base game.\n\nThis is however now also fully compatible with Space Age and Elevated Rails.",
   "dependencies": [
     "base",
+    "? space-age",
+    "? elevated-rails",
     "? space-exploration",
     "? Krastorio2"
   ],
