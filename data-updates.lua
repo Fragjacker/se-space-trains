@@ -1,3 +1,4 @@
+local item_sounds = require("__base__.prototypes.item_sounds")
 ------------------------------------------
 -- Startup Settings handling happens here.
 ------------------------------------------
@@ -44,7 +45,10 @@ if settings.startup["space-battery-decay-enable-setting"].value then
     burnt_result = "space-train-discharged-battery-pack",
     subgroup = "intermediate-product",
     order = "s-a[destroyed-battery-pack]",
-    stack_size = 60
+    stack_size = 60,
+    inventory_move_sound = item_sounds.electric_small_inventory_move,
+    pick_sound = item_sounds.electric_small_inventory_pickup,
+    drop_sound = item_sounds.electric_small_inventory_move
   }, {
     type = "recipe",
     name = "space-train-battery-pack-refurbish",
@@ -239,10 +243,8 @@ elseif mods["space-age"] then
   {
     type = "technology",
     name = "tech-space-trains",
-    mod = "se-space-trains",
     icon = "__se-space-trains__/graphics/icons/space-trains-tech.png",
     icon_size = 256,
-    icon_mipmaps = 4,
     effects = {{
       type = "unlock-recipe",
       recipe = "space-locomotive"
@@ -283,10 +285,8 @@ else
   {
     type = "technology",
     name = "tech-space-trains",
-    mod = "se-space-trains",
     icon = "__se-space-trains__/graphics/icons/space-trains-tech.png",
     icon_size = 256,
-    icon_mipmaps = 4,
     effects = {{
       type = "unlock-recipe",
       recipe = "space-locomotive"
