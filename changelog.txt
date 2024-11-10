@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 2024-11-10
+  Changes:
+    - Removed legacy non HR graphics from the Mod as they are no longer needed. This should also cut down mod file size.
+    - Removed the tint mask for cargo wagons since vanilla is not using them anyways and they behave weirdly on sloped ramps.
+    - Slightly adjusted the vertical sprite offset of the locomotive on sloped ramps.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 2024-11-01
   Changes:

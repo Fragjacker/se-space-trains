@@ -129,18 +129,18 @@ updates.cargo_wagon =
             usage = "train"
           }
         ),
-        util.sprite_load("__se-space-trains__/graphics/entity/elevated-rails/space-cargo-wagon/space-cargo-wagon-sloped-mask",
-          {
-            dice = 4,
-            priority = "very-low",
-            flags = { "mask" },
-            apply_runtime_tint = true,
-            tint_as_overlay = true,
-            direction_count = 80,
-            scale = corrected_train_scale,
-            usage = "train"
-          }
-        ),
+        -- util.sprite_load("__se-space-trains__/graphics/entity/elevated-rails/space-cargo-wagon/space-cargo-wagon-sloped-mask",
+        --   {
+        --     dice = 4,
+        --     priority = "very-low",
+        --     flags = { "mask" },
+        --     apply_runtime_tint = true,
+        --     tint_as_overlay = true,
+        --     direction_count = 80,
+        --     scale = corrected_train_scale,
+        --     usage = "train"
+        --   }
+        -- ),
         util.sprite_load("__se-space-trains__/graphics/entity/elevated-rails/space-cargo-wagon/space-cargo-wagon-sloped-shadow",
           {
             dice = 4,
