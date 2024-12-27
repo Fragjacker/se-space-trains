@@ -28,18 +28,12 @@ if settings.startup["space-battery-decay-enable-setting"].value then
     type = "item",
     name = "space-train-destroyed-battery-pack",
     icon = "__se-space-trains__/graphics/icons/destroyed-battery.png",
-    icon_size = 128,
+    icon_size = 64,
     pictures = {
       layers = {{
-        size = 128,
+        size = 64,
         filename = "__se-space-trains__/graphics/icons/destroyed-battery.png",
-        scale = 0.125
-      }, {
-        draw_as_light = true,
-        flags = {"light"},
-        size = 128,
-        filename = "__se-space-trains__/graphics/icons/destroyed-battery_light.png",
-        scale = 0.125
+        scale = 0.25
       }}
     },
     burnt_result = "space-train-discharged-battery-pack",
@@ -60,7 +54,7 @@ if settings.startup["space-battery-decay-enable-setting"].value then
       {type="fluid", name="sulfuric-acid", amount=20},
     },
     icon = "__se-space-trains__/graphics/icons/destroyed-battery.png",
-    icon_size = 128,
+    icon_size = 64,
     allow_as_intermediate = false,
     localised_name = {"recipe-name.space-train-battery-pack-refurbish-desc"},
     results = {{type="item", name="space-train-discharged-battery-pack", amount=1}},
