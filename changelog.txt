@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+Date: 2024-12-27
+  Changes:
+    - Changed Space Trains tech research cost to 1500 automation, logistic, chemical, utility, space and electromagnetic science packs instead of unlocking it via crafting an electromagnetics facility. (Thanks to @snouz for the pull request)
+    - Moved Space Trains to the Trains sub group. (Thanks to @snouz for the pull request)
+    - Changed the weight of Space Locomotives to 4.000 from 12.000. (Thanks to @snouz for the pull request)
+    - Reworked some Icons and their definitions. (Thanks to @snouz for the pull request)
+    - Added the missing destroyed battery refurbishment recipe when battery decay mod option and Space Age is enabled.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.2
 Date: 2024-11-10
   Changes:
