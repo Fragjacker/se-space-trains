@@ -24,17 +24,17 @@ if settings.startup["space-battery-pack-energy-density-setting"].value == "100 M
   data.raw["item"]["space-train-battery-pack"].fuel_value = "100MJ"
 end
 if settings.startup["space-battery-decay-enable-setting"].value then
-  data:extend({{
+  data:extend({ {
     type = "item",
     name = "space-train-destroyed-battery-pack",
     icon = "__se-space-trains__/graphics/icons/destroyed-battery.png",
     icon_size = 64,
     pictures = {
-      layers = {{
+      layers = { {
         size = 64,
         filename = "__se-space-trains__/graphics/icons/destroyed-battery.png",
         scale = 0.25
-      }}
+      } }
     },
     burnt_result = "space-train-discharged-battery-pack",
     subgroup = "intermediate-product",
@@ -50,21 +50,21 @@ if settings.startup["space-battery-decay-enable-setting"].value then
     enabled = false,
     category = "chemistry",
     ingredients = {
-      {type="item", name="space-train-destroyed-battery-pack", amount=1},
-      {type="fluid", name="sulfuric-acid", amount=20},
+      { type = "item", name = "space-train-destroyed-battery-pack", amount = 1 },
+      { type = "fluid", name = "sulfuric-acid",                  amount = 20 },
     },
     icon = "__se-space-trains__/graphics/icons/destroyed-battery.png",
     icon_size = 64,
     allow_as_intermediate = false,
-    localised_name = {"recipe-name.space-train-battery-pack-refurbish-desc"},
-    results = {{type="item", name="space-train-discharged-battery-pack", amount=1}},
-  }})
+    localised_name = { "recipe-name.space-train-battery-pack-refurbish-desc" },
+    results = { { type = "item", name = "space-train-discharged-battery-pack", amount = 1 } },
+  } })
 else
-  data.raw["recipe"]["space-train-battery-pack-recharge"].results = {{
+  data.raw["recipe"]["space-train-battery-pack-recharge"].results = { {
     type = "item",
     name = "space-train-battery-pack",
     amount = 1
-  }}
+  } }
 end
 ------------------------------------------
 -- Handling Mod cases happens here
@@ -81,20 +81,23 @@ if mods["Krastorio2"] then
   data.raw["fluid-wagon"]["space-fluid-wagon"].allow_robot_dispatch_in_automatic_mode = true
 
   data.raw["recipe"]["space-locomotive"].ingredients =
-    {{type="item", name="locomotive", amount=1},
-    {type="item", name="processing-unit", amount=20},
-    {type="item", name="electronic-components", amount=20},
-    {type="item", name="steel-gear-wheel", amount=20},
-    {type="item", name="rare-metals", amount=80}}
-  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, {type="item", name="steel-gear-wheel", amount=20})
-  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, {type="item", name="steel-gear-wheel", amount=20})
-  table.insert(data.raw["recipe"]["space-train-battery-pack"].ingredients, {type="item", name="lithium-sulfur-battery", amount=10})
+  { { type = "item", name = "locomotive",      amount = 1 },
+    { type = "item", name = "processing-unit",   amount = 20 },
+    { type = "item", name = "electronic-components", amount = 20 },
+    { type = "item", name = "steel-gear-wheel",  amount = 20 },
+    { type = "item", name = "rare-metals",       amount = 80 } }
+  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "steel-gear-wheel", amount = 20 })
+  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "steel-gear-wheel", amount = 20 })
+  table.insert(data.raw["recipe"]["space-train-battery-pack"].ingredients,
+    { type = "item", name = "lithium-sulfur-battery", amount = 10 })
   if settings.startup["space-battery-decay-enable-setting"].value then
-    table.insert(data.raw["recipe"]["space-train-battery-pack-refurbish"].ingredients, {type="item", name="lithium-sulfur-battery", amount=5})
+    table.insert(data.raw["recipe"]["space-train-battery-pack-refurbish"].ingredients,
+      { type = "item", name = "lithium-sulfur-battery", amount = 5 })
   end
 else
   if settings.startup["space-battery-decay-enable-setting"].value then
-    table.insert(data.raw["recipe"]["space-train-battery-pack-refurbish"].ingredients, {type="item", name="battery", amount=10})
+    table.insert(data.raw["recipe"]["space-train-battery-pack-refurbish"].ingredients,
+      { type = "item", name = "battery", amount = 10 })
   end
 end
 
@@ -155,21 +158,22 @@ if mods["space-exploration"] then
   end
 
   -- Change recipes accordingly when space exploration mods are installed and used.
-  table.insert(data.raw["recipe"]["space-locomotive"].ingredients, {type="item", name="se-heat-shielding", amount=20})
-  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, {type="item", name="se-heat-shielding", amount=20})
-  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, {type="item", name="se-heat-shielding", amount=20})
-  table.insert(data.raw["recipe"]["space-train-battery-charging-station"].ingredients, {type="item", name="se-heat-shielding", amount=20})
+  table.insert(data.raw["recipe"]["space-locomotive"].ingredients, { type = "item", name = "se-heat-shielding", amount = 20 })
+  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "se-heat-shielding", amount = 20 })
+  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "se-heat-shielding", amount = 20 })
+  table.insert(data.raw["recipe"]["space-train-battery-charging-station"].ingredients,
+    { type = "item", name = "se-heat-shielding", amount = 20 })
 
   data.raw["assembling-machine"]["space-train-battery-charging-station"].se_allow_in_space = true
 
   if mods["space-exploration"] and not mods["Krastorio2"] then
-    table.insert(data.raw["recipe"]["space-locomotive"].ingredients, {type="item", name="steel-plate", amount=20})
-    table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, {type="item", name="steel-plate", amount=20})
-    table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, {type="item", name="steel-plate", amount=20})
+    table.insert(data.raw["recipe"]["space-locomotive"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
+    table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
+    table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
   end
--- ---------------------------------------------------------------------------------------------- --
---                                            SPACE AGE                                           --
--- ---------------------------------------------------------------------------------------------- --
+  -- ---------------------------------------------------------------------------------------------- --
+  --                                            SPACE AGE                                           --
+  -- ---------------------------------------------------------------------------------------------- --
 elseif mods["space-age"] then
   local one_gravity_condition =
   {
@@ -184,147 +188,148 @@ elseif mods["space-age"] then
 
   -- --------------------------- Add weights and default import planets --------------------------- --
   data.raw["item-with-entity-data"]["space-locomotive"].default_import_location = "fulgora"
-  data.raw["item-with-entity-data"]["space-locomotive"].weight = 1000*kg
+  data.raw["item-with-entity-data"]["space-locomotive"].weight = 1000 * kg
   data.raw["item-with-entity-data"]["space-cargo-wagon"].default_import_location = "fulgora"
-  data.raw["item-with-entity-data"]["space-cargo-wagon"].weight = 1000*kg
+  data.raw["item-with-entity-data"]["space-cargo-wagon"].weight = 1000 * kg
   data.raw["item-with-entity-data"]["space-fluid-wagon"].default_import_location = "fulgora"
-  data.raw["item-with-entity-data"]["space-fluid-wagon"].weight = 1000*kg
+  data.raw["item-with-entity-data"]["space-fluid-wagon"].weight = 1000 * kg
 
   data.raw["item"]["space-train-battery-charging-station"].default_import_location = "fulgora"
-  data.raw["item"]["space-train-battery-charging-station"].weight = 100*kg
+  data.raw["item"]["space-train-battery-charging-station"].weight = 100 * kg
   data.raw["item"]["space-train-battery-pack"].default_import_location = "fulgora"
-  data.raw["item"]["space-train-battery-pack"].weight = 10*kg
-  data.raw["item"]["space-train-discharged-battery-pack"].weight = 10*kg
+  data.raw["item"]["space-train-battery-pack"].weight = 10 * kg
+  data.raw["item"]["space-train-discharged-battery-pack"].weight = 10 * kg
 
   if settings.startup["space-battery-decay-enable-setting"].value then
-    data.raw["item"]["space-train-destroyed-battery-pack"].weight = 10*kg
+    data.raw["item"]["space-train-destroyed-battery-pack"].weight = 10 * kg
   end
 
   -- ----------------- Change the recipes now to use the electromagentics facility ---------------- --
-  data.raw["recipe"]["space-locomotive"].subgroup = "train-transport"
-  data.raw["recipe"]["space-locomotive"].order = "c[rolling-stock]-e[space-locomotive]"
   data.raw["recipe"]["space-locomotive"].category = "electromagnetics"
   data.raw["recipe"]["space-locomotive"].allow_productivity = true
-  data.raw["recipe"]["space-cargo-wagon"].subgroup = "train-transport"
-  data.raw["recipe"]["space-cargo-wagon"].order = "c[rolling-stock]-f[space-cargo-wagon]"
   data.raw["recipe"]["space-cargo-wagon"].category = "electromagnetics"
   data.raw["recipe"]["space-cargo-wagon"].allow_productivity = true
-  data.raw["recipe"]["space-fluid-wagon"].subgroup = "train-transport"
-  data.raw["recipe"]["space-fluid-wagon"].order = "c[rolling-stock]-g[space-fluid-wagon]"
   data.raw["recipe"]["space-fluid-wagon"].category = "electromagnetics"
   data.raw["recipe"]["space-fluid-wagon"].allow_productivity = true
 
   data.raw["recipe"]["space-train-battery-charging-station"].allow_productivity = true
-  data.raw["recipe"]["space-train-battery-charging-station"].subgroup = "train-transport"
-  data.raw["recipe"]["space-train-battery-charging-station"].order = "c[rolling-stock]-h[space-train-battery-charging-station]"
   data.raw["recipe"]["space-train-battery-charging-station"].category = "electromagnetics"
   data.raw["recipe"]["space-train-battery-charging-station"].allow_productivity = true
-  data.raw["recipe"]["space-train-battery-charging-station"].ingredients = {{type="item", name="processing-unit", amount=10},{type="item", name="steel-plate", amount=10},{type="item", name="superconductor", amount=5},{type="item", name="holmium-plate", amount=2}}
+  data.raw["recipe"]["space-train-battery-charging-station"].ingredients = { { type = "item", name = "processing-unit", amount = 10 }, { type = "item", name = "steel-plate", amount = 10 }, { type = "item", name = "superconductor", amount = 5 }, { type = "item", name = "holmium-plate", amount = 2 } }
 
   data.raw["recipe"]["space-train-battery-pack"].allow_productivity = true
   data.raw["recipe"]["space-train-battery-pack"].subgroup = "fulgora-processes"
   data.raw["recipe"]["space-train-battery-pack"].category = "electromagnetics"
   data.raw["recipe"]["space-train-battery-pack"].allow_productivity = true
-  data.raw["recipe"]["space-train-battery-pack"].ingredients = {{type="item", name="supercapacitor", amount=1},{type="item", name="superconductor", amount=2},{type="item", name="holmium-plate", amount=2}}
+  data.raw["recipe"]["space-train-battery-pack"].ingredients = { { type = "item", name = "supercapacitor", amount = 1 }, { type = "item", name = "superconductor", amount = 2 }, { type = "item", name = "holmium-plate", amount = 2 } }
 
   -- ------------------------------------- Add new ingredients ------------------------------------ --
-  table.insert(data.raw["recipe"]["space-locomotive"].ingredients, {type="item", name="steel-plate", amount=20})
-  table.insert(data.raw["recipe"]["space-locomotive"].ingredients, {type="item", name="supercapacitor", amount=5})
-  table.insert(data.raw["recipe"]["space-locomotive"].ingredients, {type="item", name="superconductor", amount=10})
-  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, {type="item", name="steel-plate", amount=20})
-  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, {type="item", name="superconductor", amount=10})
-  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, {type="item", name="steel-plate", amount=20})
-  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, {type="item", name="superconductor", amount=10})
+  table.insert(data.raw["recipe"]["space-locomotive"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
+  table.insert(data.raw["recipe"]["space-locomotive"].ingredients, { type = "item", name = "supercapacitor", amount = 5 })
+  table.insert(data.raw["recipe"]["space-locomotive"].ingredients, { type = "item", name = "superconductor", amount = 10 })
+  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
+  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "superconductor", amount = 10 })
+  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
+  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "superconductor", amount = 10 })
 
   -- ------------------------------ Add a new appropriate technology ------------------------------ --
   data:extend({
-  {
-    type = "technology",
-    name = "tech-space-trains",
-    icon = "__se-space-trains__/graphics/icons/space-trains-tech.png",
-    icon_size = 256,
-    effects = {{
-      type = "unlock-recipe",
-      recipe = "space-locomotive"
-    }, {
-      type = "unlock-recipe",
-      recipe = "space-fluid-wagon"
-    }, {
-      type = "unlock-recipe",
-      recipe = "space-cargo-wagon"
-    }, {
-      type = "unlock-recipe",
-      recipe = "space-train-battery-charging-station"
-    }, {
-      type = "unlock-recipe",
-      recipe = "space-train-battery-pack"
-    }, {
-      type = "unlock-recipe",
-      recipe = "space-train-battery-pack-recharge"
-    }},
-    prerequisites = {"processing-unit", "electromagnetic-plant", "railway", "holmium-processing"},
-    unit = {
-      count = 1500,
-      ingredients =
-      {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-        {"utility-science-pack", 1},
-        {"space-science-pack", 1},
-        {"electromagnetic-science-pack", 1}
+    {
+      type = "technology",
+      name = "tech-space-trains",
+      icon = "__se-space-trains__/graphics/icons/space-trains-tech.png",
+      icon_size = 256,
+      effects = { {
+        type = "unlock-recipe",
+        recipe = "space-locomotive"
+      }, {
+        type = "unlock-recipe",
+        recipe = "space-fluid-wagon"
+      }, {
+        type = "unlock-recipe",
+        recipe = "space-cargo-wagon"
+      }, {
+        type = "unlock-recipe",
+        recipe = "space-train-battery-charging-station"
+      }, {
+        type = "unlock-recipe",
+        recipe = "space-train-battery-pack"
+      }, {
+        type = "unlock-recipe",
+        recipe = "space-train-battery-pack-recharge"
+      } },
+      prerequisites = { "processing-unit", "electromagnetic-plant", "railway", "holmium-processing" },
+      unit = {
+        count = 1500,
+        ingredients =
+        {
+          { "automation-science-pack",      1 },
+          { "logistic-science-pack",        1 },
+          { "chemical-science-pack",        1 },
+          { "utility-science-pack",         1 },
+          { "space-science-pack",           1 },
+          { "electromagnetic-science-pack", 1 }
+        },
+        time = 60
       },
-      time = 60
-    },
-  }
-})
--- ---------------------------------------------------------------------------------------------- --
---                                             VANILLA                                            --
--- ---------------------------------------------------------------------------------------------- --
+    }
+  })
+
+  -- Handle Battery decay in Space Age.
+  if settings.startup["space-battery-decay-enable-setting"].value then
+    table.insert(data.raw["technology"]["tech-space-trains"].effects, {
+      type = "unlock-recipe",
+      recipe = "space-train-battery-pack-refurbish"
+    })
+    data.raw["recipe"]["space-train-battery-pack-refurbish"].subgroup = "fulgora-processes"
+  end
+  -- ---------------------------------------------------------------------------------------------- --
+  --                                             VANILLA                                            --
+  -- ---------------------------------------------------------------------------------------------- --
 else
   -- Handle adding a new tech for Space Trains if Space Exploration is not used.
-  table.insert(data.raw["recipe"]["space-locomotive"].ingredients, {type="item", name="steel-plate", amount=20})
-  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, {type="item", name="steel-plate", amount=20})
-  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, {type="item", name="steel-plate", amount=20})
+  table.insert(data.raw["recipe"]["space-locomotive"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
+  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
+  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
 
   data:extend({ -- TECHNOMANS
-  {
-    type = "technology",
-    name = "tech-space-trains",
-    icon = "__se-space-trains__/graphics/icons/space-trains-tech.png",
-    icon_size = 256,
-    effects = {{
-      type = "unlock-recipe",
-      recipe = "space-locomotive"
-    }, {
-      type = "unlock-recipe",
-      recipe = "space-fluid-wagon"
-    }, {
-      type = "unlock-recipe",
-      recipe = "space-cargo-wagon"
-    }, {
-      type = "unlock-recipe",
-      recipe = "space-train-battery-charging-station"
-    }, {
-      type = "unlock-recipe",
-      recipe = "space-train-battery-pack"
-    }, {
-      type = "unlock-recipe",
-      recipe = "space-train-battery-pack-recharge"
-    }},
-    prerequisites = {"steel-processing", "processing-unit", "battery", "railway", "production-science-pack"},
-    unit = {
-      count = 500,
-      ingredients = {
-      {"automation-science-pack", 1},
-      {"logistic-science-pack", 11},
-      {"chemical-science-pack", 11},
-      {"production-science-pack", 11}
-    },
-      time = 60
+    {
+      type = "technology",
+      name = "tech-space-trains",
+      icon = "__se-space-trains__/graphics/icons/space-trains-tech.png",
+      icon_size = 256,
+      effects = { {
+        type = "unlock-recipe",
+        recipe = "space-locomotive"
+      }, {
+        type = "unlock-recipe",
+        recipe = "space-fluid-wagon"
+      }, {
+        type = "unlock-recipe",
+        recipe = "space-cargo-wagon"
+      }, {
+        type = "unlock-recipe",
+        recipe = "space-train-battery-charging-station"
+      }, {
+        type = "unlock-recipe",
+        recipe = "space-train-battery-pack"
+      }, {
+        type = "unlock-recipe",
+        recipe = "space-train-battery-pack-recharge"
+      } },
+      prerequisites = { "steel-processing", "processing-unit", "battery", "railway", "production-science-pack" },
+      unit = {
+        count = 500,
+        ingredients = {
+          { "automation-science-pack", 1 },
+          { "logistic-science-pack",   11 },
+          { "chemical-science-pack",   11 },
+          { "production-science-pack", 11 }
+        },
+        time = 60
+      }
     }
-  }
-})
+  })
   if settings.startup["space-battery-decay-enable-setting"].value then
     table.insert(data.raw["technology"]["tech-space-trains"].effects, {
       type = "unlock-recipe",
