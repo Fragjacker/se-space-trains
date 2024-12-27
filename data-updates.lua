@@ -265,11 +265,19 @@ elseif mods["space-age"] then
       recipe = "space-train-battery-pack-recharge"
     }},
     prerequisites = {"processing-unit", "electromagnetic-plant", "railway", "holmium-processing"},
-    research_trigger =
-    {
-      type = "craft-item",
-      item = "electromagnetic-plant"
-    }
+    unit = {
+      count = 1500,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"utility-science-pack", 1},
+        {"space-science-pack", 1},
+        {"electromagnetic-science-pack", 1}
+      },
+      time = 60
+    },
   }
 })
 -- ---------------------------------------------------------------------------------------------- --
