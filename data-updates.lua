@@ -207,18 +207,22 @@ elseif mods["space-age"] then
   end
 
   -- ----------------- Change the recipes now to use the electromagentics facility ---------------- --
-  data.raw["recipe"]["space-locomotive"].subgroup = "fulgora-processes"
+  data.raw["recipe"]["space-locomotive"].subgroup = "train-transport"
+  data.raw["recipe"]["space-locomotive"].order = "c[rolling-stock]-e[space-locomotive]"
   data.raw["recipe"]["space-locomotive"].category = "electromagnetics"
   data.raw["recipe"]["space-locomotive"].allow_productivity = true
-  data.raw["recipe"]["space-cargo-wagon"].subgroup = "fulgora-processes"
+  data.raw["recipe"]["space-cargo-wagon"].subgroup = "train-transport"
+  data.raw["recipe"]["space-cargo-wagon"].order = "c[rolling-stock]-f[space-cargo-wagon]"
   data.raw["recipe"]["space-cargo-wagon"].category = "electromagnetics"
   data.raw["recipe"]["space-cargo-wagon"].allow_productivity = true
-  data.raw["recipe"]["space-fluid-wagon"].subgroup = "fulgora-processes"
+  data.raw["recipe"]["space-fluid-wagon"].subgroup = "train-transport"
+  data.raw["recipe"]["space-fluid-wagon"].order = "c[rolling-stock]-g[space-fluid-wagon]"
   data.raw["recipe"]["space-fluid-wagon"].category = "electromagnetics"
   data.raw["recipe"]["space-fluid-wagon"].allow_productivity = true
 
   data.raw["recipe"]["space-train-battery-charging-station"].allow_productivity = true
-  data.raw["recipe"]["space-train-battery-charging-station"].subgroup = "fulgora-processes"
+  data.raw["recipe"]["space-train-battery-charging-station"].subgroup = "train-transport"
+  data.raw["recipe"]["space-train-battery-charging-station"].order = "c[rolling-stock]-h[space-train-battery-charging-station]"
   data.raw["recipe"]["space-train-battery-charging-station"].category = "electromagnetics"
   data.raw["recipe"]["space-train-battery-charging-station"].allow_productivity = true
   data.raw["recipe"]["space-train-battery-charging-station"].ingredients = {{type="item", name="processing-unit", amount=10},{type="item", name="steel-plate", amount=10},{type="item", name="superconductor", amount=5},{type="item", name="holmium-plate", amount=2}}
