@@ -319,12 +319,12 @@ else
       } },
       prerequisites = { "steel-processing", "processing-unit", "battery", "railway", "production-science-pack" },
       unit = {
-        count = 500,
+        count = 1500,
         ingredients = {
           { "automation-science-pack", 1 },
-          { "logistic-science-pack",   11 },
-          { "chemical-science-pack",   11 },
-          { "production-science-pack", 11 }
+          { "logistic-science-pack",   1 },
+          { "chemical-science-pack",   1 },
+          { "production-science-pack", 1 }
         },
         time = 60
       }

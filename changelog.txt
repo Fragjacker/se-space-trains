@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.4
+Date: 2024-12-31
+  Changes:
+    - Changed the code for the vanilla Factorio Space Train tech recipe to more consistent values.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.3
 Date: 2024-12-27
   Changes:
