@@ -1,10 +1,11 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.5
-Date: 2025-03-03
+Date: 2025-03-08
   Info:
-    - Update by Fr_Dae
+    - Update powered by Fr_Dae.
   Changes:
-    - Add Fr Localisation
+    - Add French text localisation.
+    - Added new mod title texts.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.4
 Date: 2024-12-31
