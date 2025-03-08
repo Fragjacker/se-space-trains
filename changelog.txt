@@ -2,7 +2,7 @@
 Version: 1.0.5
 Date: 2025-03-03
   Info:
-  - Update by Fr_Dae
+    - Update by Fr_Dae
   Changes:
     - Add Fr Localisation
 ---------------------------------------------------------------------------------------------------
