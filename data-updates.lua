@@ -341,3 +341,11 @@ else
     table.insert(data.raw["technology"]["tech-space-trains"].prerequisites, "kr-lithium-sulfur-battery")
   end
 end
+
+local recycling = require("__quality__.prototypes.recycling")
+
+recycling.generate_recycling_recipe(data.raw["recipe"]["space-locomotive"])
+recycling.generate_recycling_recipe(data.raw["recipe"]["space-cargo-wagon"])
+recycling.generate_recycling_recipe(data.raw["recipe"]["space-fluid-wagon"])
+recycling.generate_recycling_recipe(data.raw["recipe"]["space-train-battery-charging-station"])
+recycling.generate_recycling_recipe(data.raw["recipe"]["space-train-battery-pack"])
