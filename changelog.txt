@@ -2,7 +2,11 @@
 Version: 1.0.6
 Date: 2025-04-21
   Bugfixes:
-    - Fixed recycling results with space age
+    - Added recycling recipe for Space Locomotive.
+    - Added recycling recipe for Space Cargo Wagon.
+    - Added recycling recipe for Space Fluid Wagon.
+    - Added recycling recipe for Space Train battery charging station.
+    - Added recycling recipe for Space Train battery packs.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.5
 Date: 2025-03-08
