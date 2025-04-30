@@ -1,4 +1,5 @@
 local item_sounds = require("__base__.prototypes.item_sounds")
+
 ------------------------------------------
 -- Startup Settings handling happens here.
 ------------------------------------------
@@ -66,9 +67,11 @@ else
     amount = 1
   } }
 end
+
 ------------------------------------------
 -- Handling Mod cases happens here
 ------------------------------------------
+
 -- ---------------------------------------------------------------------------------------------- --
 --                                           KRASTORIO 2                                          --
 -- ---------------------------------------------------------------------------------------------- --
@@ -171,10 +174,11 @@ if mods["space-exploration"] then
     table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
     table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
   end
-  -- ---------------------------------------------------------------------------------------------- --
-  --                                            SPACE AGE                                           --
-  -- ---------------------------------------------------------------------------------------------- --
-elseif mods["space-age"] then
+end
+-- ---------------------------------------------------------------------------------------------- --
+--                                            SPACE AGE                                           --
+-- ---------------------------------------------------------------------------------------------- --
+if mods["space-age"] then
   local one_gravity_condition =
   {
     {
@@ -283,9 +287,10 @@ elseif mods["space-age"] then
     })
     data.raw["recipe"]["space-train-battery-pack-refurbish"].subgroup = "fulgora-processes"
   end
-  -- ---------------------------------------------------------------------------------------------- --
-  --                                             VANILLA                                            --
-  -- ---------------------------------------------------------------------------------------------- --
+
+-- ---------------------------------------------------------------------------------------------- --
+--                                             VANILLA                                            --
+-- ---------------------------------------------------------------------------------------------- --
 else
   -- Handle adding a new tech for Space Trains if Space Exploration is not used.
   table.insert(data.raw["recipe"]["space-locomotive"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
@@ -342,10 +347,14 @@ else
   end
 end
 
-local recycling = require("__quality__.prototypes.recycling")
-
-recycling.generate_recycling_recipe(data.raw["recipe"]["space-locomotive"])
-recycling.generate_recycling_recipe(data.raw["recipe"]["space-cargo-wagon"])
-recycling.generate_recycling_recipe(data.raw["recipe"]["space-fluid-wagon"])
-recycling.generate_recycling_recipe(data.raw["recipe"]["space-train-battery-charging-station"])
-recycling.generate_recycling_recipe(data.raw["recipe"]["space-train-battery-pack"])
+-- ---------------------------------------------------------------------------------------------- --
+--                                 QUALITY - ADD RECYCLING RECIPES                                --
+-- ---------------------------------------------------------------------------------------------- --
+if mods["quality"] then
+  local recycling = require("__quality__.prototypes.recycling")
+  recycling.generate_recycling_recipe(data.raw["recipe"]["space-locomotive"])
+  recycling.generate_recycling_recipe(data.raw["recipe"]["space-cargo-wagon"])
+  recycling.generate_recycling_recipe(data.raw["recipe"]["space-fluid-wagon"])
+  recycling.generate_recycling_recipe(data.raw["recipe"]["space-train-battery-charging-station"])
+  recycling.generate_recycling_recipe(data.raw["recipe"]["space-train-battery-pack"])
+end

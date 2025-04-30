@@ -1,6 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.7
+Date: 2025-04-30
+  Info:
+    - Added quality mod as an optional depedancy.
+  Bugfixes:
+    - Fixed the mod crashing when the hidden quality hard mod dependancy, for the recycling recipes added by the last update, was not fulfilled.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.6
 Date: 2025-04-21
+  Info:
+    - Updated made by @snouz, thanks for the pull request!
   Bugfixes:
     - Added recycling recipe for Space Locomotive.
     - Added recycling recipe for Space Cargo Wagon.
