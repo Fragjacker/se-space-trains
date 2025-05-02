@@ -154,6 +154,7 @@ if mods["space-exploration"] then
   table.insert(data.raw["technology"]["se-space-rail"].prerequisites, "se-heat-shielding")
   table.insert(data.raw["technology"]["se-space-rail"].prerequisites, "steel-processing")
   table.insert(data.raw["technology"]["se-space-rail"].prerequisites, "processing-unit")
+
   -- Add new prerequisites to the Space Train Tech if Krastorio 2 is used.
   if mods["Krastorio2"] then
     table.insert(data.raw["technology"]["se-space-rail"].prerequisites, "advanced-electronics")
@@ -168,12 +169,6 @@ if mods["space-exploration"] then
     { type = "item", name = "se-heat-shielding", amount = 20 })
 
   data.raw["assembling-machine"]["space-train-battery-charging-station"].se_allow_in_space = true
-
-  if mods["space-exploration"] and not mods["Krastorio2"] then
-    table.insert(data.raw["recipe"]["space-locomotive"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
-    table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
-    table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
-  end
 end
 -- ---------------------------------------------------------------------------------------------- --
 --                                            SPACE AGE                                           --
@@ -228,12 +223,9 @@ if mods["space-age"] then
   data.raw["recipe"]["space-train-battery-pack"].ingredients = { { type = "item", name = "supercapacitor", amount = 1 }, { type = "item", name = "superconductor", amount = 2 }, { type = "item", name = "holmium-plate", amount = 2 } }
 
   -- ------------------------------------- Add new ingredients ------------------------------------ --
-  table.insert(data.raw["recipe"]["space-locomotive"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
   table.insert(data.raw["recipe"]["space-locomotive"].ingredients, { type = "item", name = "supercapacitor", amount = 5 })
   table.insert(data.raw["recipe"]["space-locomotive"].ingredients, { type = "item", name = "superconductor", amount = 10 })
-  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
   table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "superconductor", amount = 10 })
-  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
   table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "superconductor", amount = 10 })
 
   -- ------------------------------ Add a new appropriate technology ------------------------------ --
@@ -292,11 +284,6 @@ if mods["space-age"] then
 --                                             VANILLA                                            --
 -- ---------------------------------------------------------------------------------------------- --
 else
-  -- Handle adding a new tech for Space Trains if Space Exploration is not used.
-  table.insert(data.raw["recipe"]["space-locomotive"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
-  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
-  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
-
   data:extend({ -- TECHNOMANS
     {
       type = "technology",
@@ -357,4 +344,14 @@ if mods["quality"] then
   recycling.generate_recycling_recipe(data.raw["recipe"]["space-fluid-wagon"])
   recycling.generate_recycling_recipe(data.raw["recipe"]["space-train-battery-charging-station"])
   recycling.generate_recycling_recipe(data.raw["recipe"]["space-train-battery-pack"])
+end
+
+-- ---------------------------------------------------------------------------------------------- --
+--                      NEGATIVE CASES - HANDLE CERTAIN MODS NOT BEING ACTIVE                     --
+-- ---------------------------------------------------------------------------------------------- --
+if not mods["Krastorio2"] then
+  -- We only want to add steel-plates whenever Krastorio2 is not active, else we use Krastorio's steel gears.
+  table.insert(data.raw["recipe"]["space-locomotive"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
+  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
+  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
 end

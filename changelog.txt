@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.8
+Date: 2025-05-02
+  Bugfixes:
+    - Fixed duplicate steel-plate ingredient when using space exploration after this mods 1.0.7 update.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.7
 Date: 2025-04-30
   Info:
