@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.9
+Date: 2025-05-10
+  Bugfixes:
+    - Fixed mod crashing when using Krastorio 2.0 due to changed ingredient names.
+    - Changed optional Krastorio mod dependancy to v2.0.0 and higher due to fundamental changes of technologies and item names.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.8
 Date: 2025-05-02
   Bugfixes:

@@ -86,16 +86,16 @@ if mods["Krastorio2"] then
   data.raw["recipe"]["space-locomotive"].ingredients =
   { { type = "item", name = "locomotive",      amount = 1 },
     { type = "item", name = "processing-unit",   amount = 20 },
-    { type = "item", name = "electronic-components", amount = 20 },
-    { type = "item", name = "steel-gear-wheel",  amount = 20 },
-    { type = "item", name = "rare-metals",       amount = 80 } }
-  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "steel-gear-wheel", amount = 20 })
-  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "steel-gear-wheel", amount = 20 })
+    { type = "item", name = "kr-electronic-components", amount = 20 },
+    { type = "item", name = "kr-steel-gear-wheel",  amount = 20 },
+    { type = "item", name = "kr-enriched-rare-metals",       amount = 80 } }
+  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "kr-steel-gear-wheel", amount = 20 })
+  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "kr-steel-gear-wheel", amount = 20 })
   table.insert(data.raw["recipe"]["space-train-battery-pack"].ingredients,
-    { type = "item", name = "lithium-sulfur-battery", amount = 10 })
+    { type = "item", name = "kr-lithium-sulfur-battery", amount = 10 })
   if settings.startup["space-battery-decay-enable-setting"].value then
     table.insert(data.raw["recipe"]["space-train-battery-pack-refurbish"].ingredients,
-      { type = "item", name = "lithium-sulfur-battery", amount = 5 })
+      { type = "item", name = "kr-lithium-sulfur-battery", amount = 5 })
   end
 else
   if settings.startup["space-battery-decay-enable-setting"].value then
@@ -157,7 +157,7 @@ if mods["space-exploration"] then
 
   -- Add new prerequisites to the Space Train Tech if Krastorio 2 is used.
   if mods["Krastorio2"] then
-    table.insert(data.raw["technology"]["se-space-rail"].prerequisites, "advanced-electronics")
+    table.insert(data.raw["technology"]["se-space-rail"].prerequisites, "advanced-circuit")
     table.insert(data.raw["technology"]["se-space-rail"].prerequisites, "kr-lithium-sulfur-battery")
   end
 
@@ -329,7 +329,7 @@ else
     })
   end
   if mods["Krastorio2"] then -- Change the technology spot to be behind Lithium-Sulfur Batteries
-    table.insert(data.raw["technology"]["tech-space-trains"].prerequisites, "advanced-electronics")
+    table.insert(data.raw["technology"]["tech-space-trains"].prerequisites, "advanced-circuit")
     table.insert(data.raw["technology"]["tech-space-trains"].prerequisites, "kr-lithium-sulfur-battery")
   end
 end
