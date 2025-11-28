@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.10
+Date: 2025-11-28
+  Bugfixes:
+    - Removed duplicate Space Train technology when the Space Exploration mod is active.
+  Changes:
+    - Moved battery pack charging station into logistics tab.
+    - The battery pack charging station now allows for changing the quality of the charged battery packs, when quality is enabled.
+    - The battery pack vehicle acceleration and top speed are now affected by quality. 
+    - Space Train Cargo Wagon item capacity is now affected by quality.
+    - Space Train Fluid Wagon fluid capacity is now affected by quality.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.9
 Date: 2025-05-10
   Bugfixes:

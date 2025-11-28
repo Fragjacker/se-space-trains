@@ -279,11 +279,11 @@ if mods["space-age"] then
     })
     data.raw["recipe"]["space-train-battery-pack-refurbish"].subgroup = "fulgora-processes"
   end
-
+end
 -- ---------------------------------------------------------------------------------------------- --
 --                                             VANILLA                                            --
 -- ---------------------------------------------------------------------------------------------- --
-else
+if not mods["space-age"] and not mods["space-exploration"] then
   data:extend({ -- TECHNOMANS
     {
       type = "technology",
@@ -344,6 +344,25 @@ if mods["quality"] then
   recycling.generate_recycling_recipe(data.raw["recipe"]["space-fluid-wagon"])
   recycling.generate_recycling_recipe(data.raw["recipe"]["space-train-battery-charging-station"])
   recycling.generate_recycling_recipe(data.raw["recipe"]["space-train-battery-pack"])
+
+  -- Make the fluid and cargo wagon be affected by quality.
+  data.raw["cargo-wagon"]["space-cargo-wagon"].quality_affects_inventory_size = true
+  data.raw["fluid-wagon"]["space-fluid-wagon"].quality_affects_capacity = true
+
+  -- Handle quality for the charging station here.
+  data.raw["item"]["space-train-battery-charging-station"].quality_affects_energy_usage = true
+  data.raw["item"]["space-train-battery-charging-station"].show_recipe_icon = true
+  data.raw["item"]["space-train-battery-charging-station"].hidden = false
+
+  -- Add quality for the fuel
+  data.raw["item"]["space-train-battery-pack"].fuel_acceleration_multiplier_quality_bonus = 0.5
+  data.raw["item"]["space-train-battery-pack"].fuel_top_speed_multiplier_quality_bonus = 0.15
+
+  -- Unhide the recipe so the user can chose to change its quality.
+  data.raw["recipe"]["space-train-battery-pack-recharge"].hidden = false
+else
+  -- Without quality we use a fixed recipe.
+  data.raw["assembling-machine"]["space-train-battery-charging-station"].fixed_recipe = "space-train-battery-pack-recharge"
 end
 
 -- ---------------------------------------------------------------------------------------------- --
