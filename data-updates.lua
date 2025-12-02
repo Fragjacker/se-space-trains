@@ -88,7 +88,7 @@ if mods["Krastorio2"] then
     { type = "item", name = "processing-unit",   amount = 20 },
     { type = "item", name = "kr-electronic-components", amount = 20 },
     { type = "item", name = "kr-steel-gear-wheel",  amount = 20 },
-    { type = "item", name = "kr-enriched-rare-metals",       amount = 80 } }
+    { type = "item", name = "kr-rare-metals",       amount = 80 } }
   table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "kr-steel-gear-wheel", amount = 20 })
   table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "kr-steel-gear-wheel", amount = 20 })
   table.insert(data.raw["recipe"]["space-train-battery-pack"].ingredients,
