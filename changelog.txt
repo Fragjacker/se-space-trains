@@ -4,6 +4,8 @@ Date: 2026-05-17
   Bugfixes:
     - Fixed Cargo Wagon shadow being displaced wrong, thus looking way taller then the Locomotive or the Fluid Wagon.
     - Fixed charged batteries being larger than the discharged and destroyed battery pack when placed on a belt.
+  Changes:
+    - Updated german translation texts, thanks to user @Lucanoria.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.11
 Date: 2025-12-02
