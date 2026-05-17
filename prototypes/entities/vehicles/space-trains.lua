@@ -610,7 +610,7 @@ data:extend({ -- Battery charging interface
                                 "__se-space-trains__/graphics/entity/vehicles/space-trains/hr_space_cargo_wagon_shadows_4.png"},
                 line_length = 4,
                 lines_per_file = 8,
-                shift = {0.8, wagon_vertical_shift},
+                shift = {-0.1, wagon_vertical_shift},
                 scale = cargo_wagon_scale
             }}
         }

@@ -20,13 +20,13 @@ data:extend({{
         layers = {{
             size = 64,
             filename = "__se-space-trains__/graphics/icons/battery.png",
-            scale = 0.25
+            scale = 0.5
         }, {
             draw_as_light = true,
             flags = {"light"},
             size = 64,
             filename = "__se-space-trains__/graphics/icons/battery_light.png",
-            scale = 0.25
+            scale = 0.5
         }}
     },
     fuel_category = "electrical",

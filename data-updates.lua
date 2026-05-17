@@ -30,13 +30,6 @@ if settings.startup["space-battery-decay-enable-setting"].value then
     name = "space-train-destroyed-battery-pack",
     icon = "__se-space-trains__/graphics/icons/destroyed-battery.png",
     icon_size = 64,
-    pictures = {
-      layers = { {
-        size = 64,
-        filename = "__se-space-trains__/graphics/icons/destroyed-battery.png",
-        scale = 0.25
-      } }
-    },
     burnt_result = "space-train-discharged-battery-pack",
     subgroup = "intermediate-product",
     order = "s-a[destroyed-battery-pack]",
