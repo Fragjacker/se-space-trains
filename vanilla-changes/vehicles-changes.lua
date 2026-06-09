@@ -53,7 +53,7 @@ data:extend({ {
 }, {
   type = "recipe",
   name = "space-train-battery-pack",
-  category = "advanced-crafting",
+  categories = {"advanced-crafting"},
   energy_required = 10,
   enabled = false,
   allow_as_intermediate = false,
@@ -66,7 +66,7 @@ data:extend({ {
 }, {
   type = "recipe",
   name = "space-train-battery-pack-recharge",
-  category = "electrical",
+  categories = {"electrical"},
   hidden = true,
   energy_required = 30,
   enabled = false,
