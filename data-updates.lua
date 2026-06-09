@@ -42,7 +42,7 @@ if settings.startup["space-battery-decay-enable-setting"].value then
     name = "space-train-battery-pack-refurbish",
     energy_required = 10,
     enabled = false,
-    category = "chemistry",
+    categories = {"chemistry"},
     ingredients = {
       { type = "item", name = "space-train-destroyed-battery-pack", amount = 1 },
       { type = "fluid", name = "sulfuric-acid",                  amount = 20 },
@@ -132,7 +132,7 @@ if mods["space-exploration"] then
       type = "unlock-recipe",
       recipe = "space-train-battery-pack-refurbish"
     })
-    data.raw["recipe"]["space-train-battery-pack-refurbish"].category = "hard-recycling"
+    data.raw["recipe"]["space-train-battery-pack-refurbish"].categories = {"hard-recycling"}
 
     -- Check for the installed version of Space Exploration and handle it.
     old_version = util.split(mods["space-exploration"], ".")
@@ -197,21 +197,21 @@ if mods["space-age"] then
   end
 
   -- ----------------- Change the recipes now to use the electromagentics facility ---------------- --
-  data.raw["recipe"]["space-locomotive"].category = "electromagnetics"
+  data.raw["recipe"]["space-locomotive"].categories = {"electromagnetics"}
   data.raw["recipe"]["space-locomotive"].allow_productivity = true
-  data.raw["recipe"]["space-cargo-wagon"].category = "electromagnetics"
+  data.raw["recipe"]["space-cargo-wagon"].categories = {"electromagnetics"}
   data.raw["recipe"]["space-cargo-wagon"].allow_productivity = true
-  data.raw["recipe"]["space-fluid-wagon"].category = "electromagnetics"
+  data.raw["recipe"]["space-fluid-wagon"].categories = {"electromagnetics"}
   data.raw["recipe"]["space-fluid-wagon"].allow_productivity = true
 
   data.raw["recipe"]["space-train-battery-charging-station"].allow_productivity = true
-  data.raw["recipe"]["space-train-battery-charging-station"].category = "electromagnetics"
+  data.raw["recipe"]["space-train-battery-charging-station"].categories = {"electromagnetics"}
   data.raw["recipe"]["space-train-battery-charging-station"].allow_productivity = true
   data.raw["recipe"]["space-train-battery-charging-station"].ingredients = { { type = "item", name = "processing-unit", amount = 10 }, { type = "item", name = "steel-plate", amount = 10 }, { type = "item", name = "superconductor", amount = 5 }, { type = "item", name = "holmium-plate", amount = 2 } }
 
   data.raw["recipe"]["space-train-battery-pack"].allow_productivity = true
   data.raw["recipe"]["space-train-battery-pack"].subgroup = "fulgora-processes"
-  data.raw["recipe"]["space-train-battery-pack"].category = "electromagnetics"
+  data.raw["recipe"]["space-train-battery-pack"].categories = {"electromagnetics"}
   data.raw["recipe"]["space-train-battery-pack"].allow_productivity = true
   data.raw["recipe"]["space-train-battery-pack"].ingredients = { { type = "item", name = "supercapacitor", amount = 1 }, { type = "item", name = "superconductor", amount = 2 }, { type = "item", name = "holmium-plate", amount = 2 } }
 
