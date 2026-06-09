@@ -486,14 +486,6 @@ data:extend({ -- Battery charging interface
         match_speed_to_activity = true,
         max_sounds_per_type = 2
     },
-    open_sound = {
-        filename = "__base__/sound/train-door-open.ogg",
-        volume = 0.5
-    },
-    close_sound = {
-        filename = "__base__/sound/train-door-close.ogg",
-        volume = 0.4
-    },
     sound_minimum_speed = 0.5,
     water_reflection = locomotive_reflection(),
     allow_remote_driving = true
@@ -638,7 +630,6 @@ data:extend({ -- Battery charging interface
         },
         match_volume_to_activity = true
     },
-    crash_trigger = crash_trigger(),
     open_sound = sounds.cargo_wagon_open,
     close_sound = sounds.cargo_wagon_close,
     sound_minimum_speed = 1,
@@ -768,7 +759,6 @@ data:extend({ -- Battery charging interface
         },
         match_volume_to_activity = true
     },
-    crash_trigger = crash_trigger(),
     sound_minimum_speed = 0.1,
     impact_category = "metal-large",
     water_reflection = locomotive_reflection()
