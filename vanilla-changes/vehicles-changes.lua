@@ -81,13 +81,13 @@ data:extend({ {
     {
       type = "item",
       name = "space-train-destroyed-battery-pack",
-      probability = 0.01,
+      shared_probability = { min = 0, max = 0.01 },
       amount = 1
     },
     {
       type = "item",
       name = "space-train-battery-pack",
-      probability = 0.99,
+      shared_probability = { min = 0.01, max = 1 },
       amount = 1
     }
   }
