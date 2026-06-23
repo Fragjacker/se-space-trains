@@ -328,19 +328,25 @@ if not mods["space-age"] and not mods["space-exploration"] then
 end
 
 -- ---------------------------------------------------------------------------------------------- --
---                                 QUALITY - ADD RECYCLING RECIPES                                --
+--                                      SPACE AGE - RECYCLING                                     --
 -- ---------------------------------------------------------------------------------------------- --
-if mods["quality"] then
-  local recycling = require("__quality__.prototypes.recycling")
+if mods["recycler"] then
+  local recycling = require("__recycler__.recycling")
   recycling.generate_recycling_recipe(data.raw["recipe"]["space-locomotive"])
   recycling.generate_recycling_recipe(data.raw["recipe"]["space-cargo-wagon"])
   recycling.generate_recycling_recipe(data.raw["recipe"]["space-fluid-wagon"])
   recycling.generate_recycling_recipe(data.raw["recipe"]["space-train-battery-charging-station"])
   recycling.generate_recycling_recipe(data.raw["recipe"]["space-train-battery-pack"])
+end
 
+-- ---------------------------------------------------------------------------------------------- --
+--                                       SPACE AGE - QUALITY                                      --
+-- ---------------------------------------------------------------------------------------------- --
+if mods["quality"] then
   -- Make the fluid and cargo wagon be affected by quality.
   data.raw["cargo-wagon"]["space-cargo-wagon"].quality_affects_inventory_size = true
   data.raw["fluid-wagon"]["space-fluid-wagon"].quality_affects_capacity = true
+  data.raw["locomotive"]["locomotive"].quality_affects_max_speed = true
 
   -- Handle quality for the charging station here.
   data.raw["item"]["space-train-battery-charging-station"].quality_affects_energy_usage = true
