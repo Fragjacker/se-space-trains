@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.2
+Date: 2026-06-24
+  Bugfixes:
+    - Fixed Space Trains not being quality upcycleable due to missing steel plates in generated recycling recipe.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.1
 Date: 2026-06-23
   Bugfixes:

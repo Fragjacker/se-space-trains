@@ -84,17 +84,23 @@ if mods["Krastorio2"] then
     { type = "item", name = "kr-rare-metals",       amount = 80 } }
   table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "kr-steel-gear-wheel", amount = 20 })
   table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "kr-steel-gear-wheel", amount = 20 })
-  table.insert(data.raw["recipe"]["space-train-battery-pack"].ingredients,
-    { type = "item", name = "kr-lithium-sulfur-battery", amount = 10 })
+  table.insert(data.raw["recipe"]["space-train-battery-pack"].ingredients, { type = "item", name = "kr-lithium-sulfur-battery", amount = 10 })
+  -- Handle battery refurbish recipe.
   if settings.startup["space-battery-decay-enable-setting"].value then
     table.insert(data.raw["recipe"]["space-train-battery-pack-refurbish"].ingredients,
       { type = "item", name = "kr-lithium-sulfur-battery", amount = 5 })
   end
+-- --------------------------------- Krastorio2 is not installed -------------------------------- --
 else
+  -- Handle battery refurbish recipe.
   if settings.startup["space-battery-decay-enable-setting"].value then
     table.insert(data.raw["recipe"]["space-train-battery-pack-refurbish"].ingredients,
       { type = "item", name = "battery", amount = 10 })
   end
+  -- We only want to add steel-plates whenever Krastorio2 is not active, else we use Krastorio's steel gears.
+  table.insert(data.raw["recipe"]["space-locomotive"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
+  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
+  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
 end
 
 -- ---------------------------------------------------------------------------------------------- --
@@ -328,18 +334,6 @@ if not mods["space-age"] and not mods["space-exploration"] then
 end
 
 -- ---------------------------------------------------------------------------------------------- --
---                                      SPACE AGE - RECYCLING                                     --
--- ---------------------------------------------------------------------------------------------- --
-if mods["recycler"] then
-  local recycling = require("__recycler__.recycling")
-  recycling.generate_recycling_recipe(data.raw["recipe"]["space-locomotive"])
-  recycling.generate_recycling_recipe(data.raw["recipe"]["space-cargo-wagon"])
-  recycling.generate_recycling_recipe(data.raw["recipe"]["space-fluid-wagon"])
-  recycling.generate_recycling_recipe(data.raw["recipe"]["space-train-battery-charging-station"])
-  recycling.generate_recycling_recipe(data.raw["recipe"]["space-train-battery-pack"])
-end
-
--- ---------------------------------------------------------------------------------------------- --
 --                                       SPACE AGE - QUALITY                                      --
 -- ---------------------------------------------------------------------------------------------- --
 if mods["quality"] then
@@ -365,11 +359,14 @@ else
 end
 
 -- ---------------------------------------------------------------------------------------------- --
---                      NEGATIVE CASES - HANDLE CERTAIN MODS NOT BEING ACTIVE                     --
+--                                      SPACE AGE - RECYCLING                                     --
 -- ---------------------------------------------------------------------------------------------- --
-if not mods["Krastorio2"] then
-  -- We only want to add steel-plates whenever Krastorio2 is not active, else we use Krastorio's steel gears.
-  table.insert(data.raw["recipe"]["space-locomotive"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
-  table.insert(data.raw["recipe"]["space-cargo-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
-  table.insert(data.raw["recipe"]["space-fluid-wagon"].ingredients, { type = "item", name = "steel-plate", amount = 20 })
+-- Handle recycling as the last step to capture any recipe changes.
+if mods["recycler"] then
+  local recycling = require("__recycler__.recycling")
+  recycling.generate_recycling_recipe(data.raw["recipe"]["space-locomotive"])
+  recycling.generate_recycling_recipe(data.raw["recipe"]["space-cargo-wagon"])
+  recycling.generate_recycling_recipe(data.raw["recipe"]["space-fluid-wagon"])
+  recycling.generate_recycling_recipe(data.raw["recipe"]["space-train-battery-charging-station"])
+  recycling.generate_recycling_recipe(data.raw["recipe"]["space-train-battery-pack"])
 end
