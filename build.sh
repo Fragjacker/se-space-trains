@@ -12,15 +12,8 @@ CONTROL_LUA="control.lua"
 DATA_LUA="data.lua"
 FINAL_MOD_FOLDER=$MODNAME'_'$VERSION
 
-# Remove old build directory
-if [ -d "$DIR_NAME" ]; then
-	rm -rf $DIR_NAME
-fi
-
 # Remove old archive
-if [ -f "$FINAL_MOD_FOLDER.zip" ]; then
-	rm $FINAL_MOD_FOLDER'.zip'
-fi
+rm -f $MODNAME*.zip
 
 # Remove make new build directory
 mkdir -p ./$DIR_NAME/$FINAL_MOD_FOLDER
