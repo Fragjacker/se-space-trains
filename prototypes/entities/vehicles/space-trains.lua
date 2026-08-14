@@ -247,6 +247,7 @@ data:extend({ -- Battery charging interface
     alert_icon_shift = util.by_pixel(0, -24),
     weight = 4000,
     max_speed = train_speed,
+    quality_affects_max_speed = true,
     max_power = "4MW",
     reversing_power_modifier = 1.0,
     braking_force = 40,
