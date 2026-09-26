@@ -29,7 +29,7 @@ data:extend({{
             scale = 0.5
         }}
     },
-    fuel_category = "electrical",
+    fuel_categories = {"electrical"},
     fuel_value = "50MJ",
     burnt_result = "space-train-discharged-battery-pack",
     subgroup = "intermediate-product",
