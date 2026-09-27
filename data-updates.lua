@@ -61,6 +61,18 @@ else
   } }
 end
 
+-- ---------------------------------------------------------------------------------------------- --
+--     Factorio v2.1.20 Introduced a breaking change for fuel types, that needs to be handled     --
+-- ---------------------------------------------------------------------------------------------- --
+factorio_version = util.split(mods["base"], ".")
+if (tonumber(factorio_version[1]) >= 2
+and tonumber(factorio_version[2]) >= 1
+and tonumber(factorio_version[3]) >= 20) then
+  data.raw["item"]["space-train-battery-pack"].fuel_categories = {"electrical"}
+else
+  data.raw["item"]["space-train-battery-pack"].fuel_category = "electrical"
+end
+
 ------------------------------------------
 -- Handling Mod cases happens here
 ------------------------------------------

@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.4
+Date: 2026-09-27
+  Bugfixes:
+    - Fixed crash on startup due to a breaking change to item fuel types, introduced in Factorio v2.1.20. (See https://forums.factorio.com/viewtopic.php?p=704479#p704479)
+    - The mod will now dynamically switch to the appropriate item fuel type depending on the locally installed Factorio version.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.3
 Date: 2026-08-15
   Changes:
