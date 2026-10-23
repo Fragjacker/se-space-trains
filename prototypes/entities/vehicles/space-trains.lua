@@ -760,5 +760,11 @@ data:extend({ -- Battery charging interface
     },
     sound_minimum_speed = 0.1,
     impact_category = "metal-large",
-    water_reflection = locomotive_reflection()
+    water_reflection = locomotive_reflection(),
+    valve_to_valve_offset_when_horizontal = {2, 0},
+    valve_to_valve_offset_when_vertical = {0, 1.775},
+    base_valve_z_offset_projected_when_horizontal = -1.4,
+    base_valve_z_offset_projected_when_vertical = -1.55,
+    base_valve_xy_offset_when_horizontal = {0, 0},
+    base_valve_xy_offset_when_vertical = {0, 0}
 }})
