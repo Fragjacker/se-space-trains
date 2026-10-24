@@ -73,6 +73,21 @@ else
   data.raw["item"]["space-train-battery-pack"].fuel_category = "electrical"
 end
 
+-- ---------------------------------------------------------------------------------------------- --
+--      Factorio v2.1.7 Introduced new fluid pump offsets for trains which need to be handled     --
+-- ---------------------------------------------------------------------------------------------- --
+if (tonumber(factorio_version[1]) >= 2
+and tonumber(factorio_version[2]) >= 1
+and tonumber(factorio_version[3]) >= 7) then
+    -- Handle newly added connector offsets
+    data.raw["fluid-wagon"]["space-fluid-wagon"].valve_to_valve_offset_when_horizontal = {2, 0}
+    data.raw["fluid-wagon"]["space-fluid-wagon"].valve_to_valve_offset_when_vertical = {0, 1.775}
+    data.raw["fluid-wagon"]["space-fluid-wagon"].base_valve_z_offset_projected_when_horizontal = -1.4
+    data.raw["fluid-wagon"]["space-fluid-wagon"].base_valve_z_offset_projected_when_vertical = -1.55
+    data.raw["fluid-wagon"]["space-fluid-wagon"].base_valve_xy_offset_when_horizontal = {0, 0}
+    data.raw["fluid-wagon"]["space-fluid-wagon"].base_valve_xy_offset_when_vertical = {0, 0}
+end
+
 ------------------------------------------
 -- Handling Mod cases happens here
 ------------------------------------------
