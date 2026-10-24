@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.5
+Date: 2026-10-24
+  Info:
+    - This update is powered by @Bykow, thanks for the pull request!
+  Changes:
+    - Added the missing valve offset properties (valve_to_valve_offset_*, base_valve_*) from the vanilla fluid wagon.
+    - Without them, a vertical Space Fluid Wagon only connected to 2 of 3 pumps, depending on the train direction.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.4
 Date: 2026-09-27
   Bugfixes:
